@@ -1,0 +1,72 @@
+\begin{frame}
+\begin{block}{let's start at a concrete example}
+how do I sum the integer values in a list?
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{using a for loop}
+\begin{lstlisting}[style=java]
+sum(list) {
+  var r = 0;
+  for(int i = 0; i < list.length; i++) {
+    r = r + list[i];
+  }
+  return r;
+}
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{using a for loop}
+\begin{lstlisting}[style=java]
+sum(list) {
+  var r = 0;
+  for(int i = 0; i < list.length; `i++`) {
+    `r = r + list[i]`;
+  }
+  return r;
+}
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+here is another way of looking at the problem
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{block}{the sum of a list is \ldots}
+\begin{itemize}
+\item if the list is empty, return \lstinline{0}
+\item otherwise add the first element to the sum of the remainder of the list
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{the sum of a list is \ldots}
+\begin{lstlisting}
+sum([6, 5, 9, 71, 3]) =
+6 + sum (5, 9, 71, 3]) =
+6 + 5 + sum([9, 71, 3]) =
+6 + 5 + 9 + sum([71, 3]) =
+6 + 5 + 9 + 71 + sum([3]) =
+6 + 5 + 9 + 71 + 3 + sum([]) =
+6 + 5 + 9 + 71 + 3 + 0 =
+94
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{here is the Haskell source code}
+\begin{lstlisting}[style=haskell]
+sum [] = 0
+sum (first:rest) = first + sum rest
+\end{lstlisting}
+\end{block}
+\end{frame}
