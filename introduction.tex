@@ -1,5 +1,138 @@
 \begin{frame}
 \begin{center}
-Introduction
+What is Functional Programming?
+\end{center}
+\begin{center}
+What does it \emph{mean}?
 \end{center}
 \end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{suppose the following program}
+\begin{lstlisting}[style=java]
+int wibble(int a, int b) {
+  counter = counter + 1;
+  return (a + b) * 2;
+}
+
+/* arbitrary code */
+
+blobble(wibble(x, y), wibble(x, y));
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{and we refactor out these common expressions}
+\begin{lstlisting}[style=java]
+int wibble(int a, int b) {
+  counter = counter + 1;
+  return (a + b) * 2;
+}
+
+/* arbitrary code */
+
+blobble(`wibble(x, y)`, `wibble(x, y)`);
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{and we refactor out these common expressions}
+\begin{lstlisting}[style=java]
+int wibble(int a, int b) {
+  counter = counter + 1;
+  return (a + b) * 2;
+}
+
+int r = `wibble(x, y);`
+
+/* arbitrary code */
+
+blobble(`r`, `r`);
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{center}
+Did the program just change?
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Yes, the program changed because \ldots}
+\begin{lstlisting}[style=java]
+int wibble(int a, int b) {
+  `counter = counter + 1;`
+  return (a + b) * 2;
+}
+
+int r = wibble(x, y);
+
+/* arbitrary code */
+
+blobble(r, r);
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{suppose this slightly different program}
+\begin{lstlisting}[style=java]
+int pibble(int a, int b) {
+  return (a + b) * 2;
+}
+
+/* arbitrary code */
+
+globble(pibble(x, y), pibble(x, y));
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{and we refactor out these common expressions}
+\begin{lstlisting}[style=java]
+int pibble(int a, int b) {
+  return (a + b) * 2;
+}
+
+/* arbitrary code */
+
+globble(`pibble(x, y)`, `pibble(x, y)`);
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{and we refactor out these common expressions}
+\begin{lstlisting}[style=java]
+int pibble(int a, int b) {
+  return (a + b) * 2;
+}
+
+int r = `pibble(x, y);`
+
+/* arbitrary code */
+
+globble(`r`, `r`);
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{center}
+This time, did the program just change?
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{it's the same program}
+for given inputs, the same outputs are given, with no observable changes to the program
+\end{block}
+\end{frame}
+% the definition
+% the general consequences e.g. HOFs
+% the concrete consequences e.g. no more loops
+% the practical consequences e.g. reason about code, composition
