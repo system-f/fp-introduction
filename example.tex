@@ -1,11 +1,11 @@
 \begin{frame}
-\begin{block}{let's start at a concrete example}
-how do I sum the integer values in a list?
+\begin{block}{Let's start at a concrete example}
+How do I sum the integer values in a list?
 \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{using a for loop}
+\begin{block}{Using a for loop}
 \begin{lstlisting}[style=java]
 sum(list) {
   var r = 0;
@@ -19,7 +19,7 @@ sum(list) {
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{using a for loop}
+\begin{block}{Using a for loop}
 \begin{lstlisting}[style=java]
 sum(list) {
   var r = 0;
@@ -34,12 +34,12 @@ sum(list) {
 
 \begin{frame}
 \begin{center}
-here is another way of looking at the problem
+Here is another way of looking at the problem
 \end{center}
 \end{frame}
 
 \begin{frame}
-\begin{block}{the sum of a list is \ldots}
+\begin{block}{The sum of a list is \ldots}
 \begin{itemize}
 \item if the list is empty, return \lstinline{0}
 \item otherwise add the first element to the sum of the remainder of the list
@@ -48,7 +48,7 @@ here is another way of looking at the problem
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{the sum of a list is \ldots}
+\begin{block}{The sum of a list is \ldots}
 \begin{lstlisting}
 sum([6, 5, 9, 71, 3]) =
 6 + sum (5, 9, 71, 3]) =
@@ -63,7 +63,7 @@ sum([6, 5, 9, 71, 3]) =
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{here is the Haskell source code}
+\begin{block}{Here is the Haskell source code}
 \begin{lstlisting}[style=haskell]
 sum [] = 0
 sum (first:rest) = first + sum rest

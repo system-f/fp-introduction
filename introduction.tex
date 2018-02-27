@@ -8,7 +8,7 @@ What does it \emph{mean}?
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{suppose the following program}
+\begin{block}{Suppose the following program \ldots}
 \begin{lstlisting}[style=java]
 int wibble(int a, int b) {
   counter = counter + 1;
@@ -23,7 +23,7 @@ blobble(wibble(x, y), wibble(x, y));
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{and we refactor out these common expressions}
+\begin{block}{and we refactor out these common expressions \ldots}
 \begin{lstlisting}[style=java]
 int wibble(int a, int b) {
   counter = counter + 1;
@@ -38,7 +38,7 @@ blobble(`wibble(x, y)`, `wibble(x, y)`);
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{and we refactor out these common expressions}
+\begin{block}{assign the expression to a value}
 \begin{lstlisting}[style=java]
 int wibble(int a, int b) {
   counter = counter + 1;
@@ -61,7 +61,7 @@ Did the program just change?
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{Yes, the program changed because \ldots}
+\begin{block}{Yes, the program changed \ldots}
 \begin{lstlisting}[style=java]
 int wibble(int a, int b) {
   `counter = counter + 1;`
@@ -78,7 +78,7 @@ blobble(r, r);
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{suppose this slightly different program}
+\begin{block}{Suppose this slightly different program \ldots}
 \begin{lstlisting}[style=java]
 int pibble(int a, int b) {
   return (a + b) * 2;
@@ -92,7 +92,7 @@ globble(pibble(x, y), pibble(x, y));
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{and we refactor out these common expressions}
+\begin{block}{and we refactor out these common expressions \ldots}
 \begin{lstlisting}[style=java]
 int pibble(int a, int b) {
   return (a + b) * 2;
@@ -106,7 +106,7 @@ globble(`pibble(x, y)`, `pibble(x, y)`);
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{block}{and we refactor out these common expressions}
+\begin{block}{assign the expression to a value}
 \begin{lstlisting}[style=java]
 int pibble(int a, int b) {
   return (a + b) * 2;
@@ -128,21 +128,16 @@ This time, did the program just change?
 \end{frame}
 
 \begin{frame}
-\begin{block}{it's the same program}
-for given inputs, the same outputs are given, with no observable changes to the program
+\begin{block}{It's the same program}
+For given inputs, the same outputs are given, with no observable changes to the program
 \end{block}
 \end{frame}
 
 \begin{frame}
 \begin{block}{Functional Programming is the idea that}
-we can \textbf{always replace expressions with a value, without affecting the program behaviour}
+We can \textbf{always replace expressions with a value, without affecting the program behaviour}
 \end{block}
 \begin{center}
-\tiny{this property of expressions is called \emph{referential transparency}}
+\tiny{This property of expressions is called \emph{referential transparency}.}
 \end{center}
 \end{frame}
-
-% the definition
-% the general consequences e.g. HOFs
-% the concrete consequences e.g. no more loops
-% the practical consequences e.g. reason about code, composition
